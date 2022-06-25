@@ -14,7 +14,39 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SizedBox(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Github Emojis'),
+        ),
+        body: const Center(
+          child: SizedBox(
+            width: 500,
+            height: 100,
+            child: SearchView(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SearchView extends StatefulWidget {
+  const SearchView({Key? key}) : super(key: key);
+
+  @override
+  State<SearchView> createState() => _SearchViewState();
+}
+
+class _SearchViewState extends State<SearchView> {
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      decoration: InputDecoration(
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.search),
+          onPressed: () {},
+        ),
+      ),
     );
   }
 }
